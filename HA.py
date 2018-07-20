@@ -66,8 +66,9 @@ def hash_to_filename():
         if respcode == 0:
             for r in response_json['response']:
                 if 'submitname' in r:
-                    abc = r['submitname'].encode("unicode-escape")
-                    me = mt.addEntity("maltego.Phrase", '%s' % r['submitname'].encode("utf-8"))
+#                    abc = r['submitname'].encode("unicode-escape")
+#                    me = mt.addEntity("maltego.Phrase", '%s' % r['submitname'].encode("utf-8"))
+                    me = mt.addEntity("maltego.Phrase", '%s' % r['submitname'])
                     me.setLinkLabel("HA Filename")
 
     except:
@@ -328,7 +329,8 @@ def hash_to_all():
                         me = mt.addEntity("maltego.IPv4Address", '%s' % item)
                         me.setLinkLabel("HA")
                 if 'submitname' in r:
-                    me = mt.addEntity("maltego.Phrase", '%s' % r['submitname'].encode("utf-8"))
+#                    me = mt.addEntity("maltego.Phrase", '%s' % r['submitname'].encode("utf-8"))
+                    me = mt.addEntity("maltego.Phrase", '%s' % r['submitname'])
                     me.setLinkLabel("HA submitname")
 #                if 'md5' in r:
 #                    me = mt.addEntity("maltego.Hash", '%s' % r['md5'])
